@@ -1,25 +1,26 @@
-import { View, StyleSheet, Text, Pressable } from "react-native";
+import { View, StyleSheet } from "react-native";
 import Constants from "expo-constants";
+import AppBarTab from "./AppBarTab";
 
 const styles = StyleSheet.create({
 	container: {
 		paddingTop: Constants.statusBarHeight,
 		backgroundColor: "#24292e",
+		display: "flex",
+		flexDirection: "row",
 	},
 	tab: {
 		fontSize: 20,
 		color: "white",
-		marginBottom: 15,
-		marginLeft: 15,
+		margin: 10,
 	},
 });
 
 const AppBar = () => {
 	return (
 		<View style={styles.container}>
-			<Pressable>
-				<Text style={styles.tab}>Repositories</Text>
-			</Pressable>
+			<AppBarTab path={"/"} style={styles.tab} text={"Repository"} />
+			<AppBarTab path={"/login"} style={styles.tab} text={"Sign In"} />
 		</View>
 	);
 };
