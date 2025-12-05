@@ -1,40 +1,38 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 
-const RepositoryItem = ({ data }) => {
-	const styles = StyleSheet.create({
-		headerContainer: {
-			marginLeft: 8,
-			marginTop: 8,
-			backgroundColor: "white",
-			display: "flex",
-			flexDirection: "row",
-		},
-		image: {
-			height: 50,
-			width: 50,
-			borderRadius: 10,
-			overflow: "hidden",
-		},
-		language: {
-			backgroundColor: "blue",
-			color: "white",
-			padding: 5,
-			borderRadius: 4,
-			alignSelf: "flex-start",
-		},
-		statsContainer: {
-			marginLeft: 40,
-			marginTop: 8,
-			marginBottom: 10,
-			backgroundColor: "white",
-			display: "flex",
-			flexDirection: "row",
-			gap: 40,
-		},
-	});
+const styles = StyleSheet.create({
+	headerContainer: {
+		marginLeft: 8,
+		marginTop: 8,
+		display: "flex",
+		flexDirection: "row",
+	},
+	image: {
+		height: 50,
+		width: 50,
+		borderRadius: 10,
+		overflow: "hidden",
+	},
+	language: {
+		backgroundColor: "blue",
+		color: "white",
+		padding: 5,
+		borderRadius: 4,
+		alignSelf: "flex-start",
+	},
+	statsContainer: {
+		marginLeft: 40,
+		marginTop: 8,
+		marginBottom: 10,
+		display: "flex",
+		flexDirection: "row",
+		gap: 40,
+	},
+});
 
+const RepositoryItem = ({ data }) => {
 	return (
-		<View>
+		<View style={{ backgroundColor: "white" }}>
 			<View style={styles.headerContainer}>
 				<Image style={styles.image} source={{ uri: data.ownerAvatarUrl }} />
 				<View style={{ marginLeft: 10 }}>
