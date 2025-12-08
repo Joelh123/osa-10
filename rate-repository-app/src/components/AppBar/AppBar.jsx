@@ -10,8 +10,6 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 	},
 	tab: {
-		fontSize: 20,
-		color: "white",
 		margin: 10,
 	},
 });

@@ -1,4 +1,5 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
+import Text from "./Text";
 
 const styles = StyleSheet.create({
 	headerContainer: {
@@ -15,7 +16,6 @@ const styles = StyleSheet.create({
 	},
 	language: {
 		backgroundColor: "blue",
-		color: "white",
 		padding: 5,
 		borderRadius: 4,
 		alignSelf: "flex-start",
@@ -36,14 +36,16 @@ const RepositoryItem = ({ data }) => {
 			<View style={styles.headerContainer}>
 				<Image style={styles.image} source={{ uri: data.ownerAvatarUrl }} />
 				<View style={{ marginLeft: 10 }}>
-					<Text style={{ fontWeight: 700 }}>{data.fullName}</Text>
+					<Text fontWeight="bold">{data.fullName}</Text>
 					<Text>{data.description}</Text>
-					<Text style={styles.language}>{data.language}</Text>
+					<Text color="textSecondary" style={styles.language}>
+						{data.language}
+					</Text>
 				</View>
 			</View>
 			<View style={styles.statsContainer}>
 				<View>
-					<Text style={{ fontWeight: 700 }}>
+					<Text fontWeight="bold">
 						{data.forksCount >= 1000
 							? `${(data.forksCount / 1000).toFixed(1)}k`
 							: data.forksCount}
@@ -51,7 +53,7 @@ const RepositoryItem = ({ data }) => {
 					<Text>Forks</Text>
 				</View>
 				<View>
-					<Text style={{ fontWeight: 700 }}>
+					<Text fontWeight="bold">
 						{data.stargazersCount >= 1000
 							? `${(data.stargazersCount / 1000).toFixed(1)}k`
 							: data.stargazersCount}
@@ -59,11 +61,11 @@ const RepositoryItem = ({ data }) => {
 					<Text>Stars</Text>
 				</View>
 				<View>
-					<Text style={{ fontWeight: 700 }}>{data.ratingAverage}</Text>
+					<Text fontWeight="bold">{data.ratingAverage}</Text>
 					<Text>Rating</Text>
 				</View>
 				<View>
-					<Text style={{ fontWeight: 700 }}>
+					<Text fontWeight="bold">
 						{data.reviewCount >= 1000
 							? `${(data.reviewCount / 1000).toFixed(1)}k`
 							: data.reviewCount}

@@ -1,5 +1,6 @@
 import { useFormik } from "formik";
-import { Text, TextInput, View, StyleSheet, Pressable } from "react-native";
+import { TextInput, View, StyleSheet, Pressable } from "react-native";
+import Text from "./Text";
 import * as yup from "yup";
 
 const initialValues = {
@@ -61,7 +62,7 @@ const SignIn = () => {
 					onChangeText={formik.handleChange("username")}
 				/>
 				{formik.touched.username && formik.errors.username && (
-					<Text style={{ color: "red" }}>{formik.errors.username}</Text>
+					<Text color="error">{formik.errors.username}</Text>
 				)}
 				<TextInput
 					style={[
@@ -75,10 +76,10 @@ const SignIn = () => {
 					secureTextEntry
 				/>
 				{formik.touched.password && formik.errors.password && (
-					<Text style={{ color: "red" }}>{formik.errors.password}</Text>
+					<Text color="error">{formik.errors.password}</Text>
 				)}
 				<Pressable style={styles.button} onPress={formik.handleSubmit}>
-					<Text style={{ color: "white" }}>Sign In</Text>
+					<Text color="textSecondary">Sign In</Text>
 				</Pressable>
 			</View>
 		</View>
