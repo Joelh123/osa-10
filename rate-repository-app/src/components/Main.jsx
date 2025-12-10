@@ -1,6 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import RepositoryList from "./RepositoryList";
-import AppBar from "./AppBar/AppBar";
+import AppBar from "./AppBar";
 import { Navigate, Route, Routes } from "react-router-native";
 import SignIn from "./SignIn";
 

@@ -1,10 +1,11 @@
 import { View, StyleSheet, Image } from "react-native";
-import Text from "./Text";
+import Text from "../Text";
 
 const styles = StyleSheet.create({
 	headerContainer: {
 		marginLeft: 8,
 		marginTop: 8,
+		marginRight: 60,
 		display: "flex",
 		flexDirection: "row",
 	},
