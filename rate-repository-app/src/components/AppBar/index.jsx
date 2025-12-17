@@ -4,6 +4,7 @@ import AppBarTab from "./AppBarTab";
 import { useApolloClient, useQuery } from "@apollo/client";
 import { CURRENT_USER } from "../../graphql/queries";
 import useAuthStorage from "../../hooks/useAuthStorage";
+import Text from "../Text";
 
 const styles = StyleSheet.create({
 	container: {
@@ -25,9 +26,12 @@ const AppBar = () => {
 
 	const signOut = async () => {
 		await authStorage.removeAccessToken();
-		console.log(data);
 		apolloClient.resetStore();
 	};
+
+	if (!data) {
+		return <Text>Loading...</Text>;
+	}
 
 	return (
 		<View style={styles.container}>
@@ -35,7 +39,7 @@ const AppBar = () => {
 				<AppBarTab path={"/"} style={styles.tab} text={"Repository"} />
 				{data.me ? (
 					<AppBarTab
-						path={"/"}
+						path={null}
 						style={styles.tab}
 						text={"Sign Out"}
 						onPress={() => signOut()}

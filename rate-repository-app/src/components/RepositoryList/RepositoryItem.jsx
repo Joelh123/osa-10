@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
 
 const RepositoryItem = ({ data }) => {
 	return (
-		<View style={{ backgroundColor: "white" }}>
+		<View testID="repositoryItem" style={{ backgroundColor: "white" }}>
 			<View style={styles.headerContainer}>
 				<Image style={styles.image} source={{ uri: data.ownerAvatarUrl }} />
 				<View style={{ marginLeft: 10 }}>
