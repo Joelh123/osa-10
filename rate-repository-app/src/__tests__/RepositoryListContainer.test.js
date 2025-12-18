@@ -45,7 +45,6 @@ describe("Repository item", () => {
 		render(<RepositoryListContainer repositories={repositories} />);
 
 		const repositoryItems = screen.getAllByTestId("repositoryItem");
-		console.log(repositoryItems);
 		const [firstRepositoryItem, secondRepositoryItem] = repositoryItems;
 
 		expect(firstRepositoryItem).toHaveTextContent(
