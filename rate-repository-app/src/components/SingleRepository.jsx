@@ -152,6 +152,7 @@ const SingleRepository = () => {
 	const id = useParams().id;
 
 	const { data: queryData, loading } = useQuery(GET_REPOSITORY, {
+		fetchPolicy: "cache-and-network",
 		variables: { id: id },
 	});
 
