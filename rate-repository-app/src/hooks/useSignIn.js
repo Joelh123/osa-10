@@ -12,10 +12,10 @@ const useSignIn = () => {
 	const apolloClient = useApolloClient();
 
 	const signIn = async ({ username, password }) => {
-		navigate("/");
 		const { data } = await mutate({
 			variables: { credentials: { username, password } },
 		});
+		navigate("/");
 		await authStorage.setAccessToken(data.authenticate.accessToken);
 		apolloClient.resetStore();
 		return data;
