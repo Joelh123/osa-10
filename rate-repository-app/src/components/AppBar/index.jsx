@@ -29,17 +29,14 @@ const AppBar = () => {
 		apolloClient.resetStore();
 	};
 
-	if (!data) {
-		return <Text>Loading...</Text>;
-	}
-
 	return (
 		<View style={styles.container}>
 			<ScrollView horizontal>
-				<AppBarTab path={"/"} style={styles.tab} text={"Repository"} />
+				<AppBarTab path={"/"} style={styles.tab} text={"Repositories"} />
 				{data.me ? (
 					<>
 						<AppBarTab path={"/review"} style={styles.tab} text={"Create a review"} />
+						<AppBarTab path={"/my-reviews"} style={styles.tab} text={"My reviews"} />
 						<AppBarTab
 							path={null}
 							style={styles.tab}
