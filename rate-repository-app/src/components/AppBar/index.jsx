@@ -19,7 +19,9 @@ const styles = StyleSheet.create({
 });
 
 const AppBar = () => {
-	const { data } = useQuery(CURRENT_USER);
+	const { data: queryData } = useQuery(CURRENT_USER);
+
+	const me = queryData?.me;
 
 	const authStorage = useAuthStorage();
 	const apolloClient = useApolloClient();
@@ -33,7 +35,7 @@ const AppBar = () => {
 		<View style={styles.container}>
 			<ScrollView horizontal>
 				<AppBarTab path={"/"} style={styles.tab} text={"Repositories"} />
-				{data.me ? (
+				{me ? (
 					<>
 						<AppBarTab path={"/review"} style={styles.tab} text={"Create a review"} />
 						<AppBarTab path={"/my-reviews"} style={styles.tab} text={"My reviews"} />

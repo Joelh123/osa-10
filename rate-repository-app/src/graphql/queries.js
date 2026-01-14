@@ -76,6 +76,7 @@ export const CURRENT_USER = gql`
 						text
 						rating
 						createdAt
+						id
 					}
 				}
 			}
