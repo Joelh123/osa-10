@@ -42,12 +42,14 @@ export class RepositoryListContainer extends React.Component {
 				data={repositoryNodes}
 				ItemSeparatorComponent={ItemSeparator}
 				renderItem={({ item }) => (
-					<Pressable onPress={() => this.props.navigate(item.id)}>
+					<Pressable onPress={() => props.navigate(item.id)}>
 						<RepositoryItem data={item} />
 					</Pressable>
 				)}
 				keyExtractor={(item) => item.id}
 				ListHeaderComponent={this.renderHeader}
+				onEndReached={props.onEndReach}
+				onEndReachedThreshold={0.5}
 			/>
 		);
 	}
@@ -58,12 +60,17 @@ const RepositoryList = () => {
 	const [filter, setFilter] = useState("");
 	const [searchKeyword] = useDebounce(filter, 500);
 
-	const { repositories } = useRepositories({ order, searchKeyword });
+	const { repositories, fetchMore } = useRepositories({ order, searchKeyword });
 	const navigate = useNavigate();
+
+	const onEndReach = () => {
+		fetchMore();
+	};
 
 	return (
 		<RepositoryListContainer
 			repositories={repositories}
+			onEndReach={onEndReach}
 			order={order}
 			setOrder={setOrder}
 			filter={filter}
